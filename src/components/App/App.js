@@ -10,7 +10,8 @@ class App extends Component {
   // Renders the entire app on the DOM
 
   componentDidMount() {
-    this.props.dispatch({type: 'FETCH_TAGS'})
+    this.props.dispatch({type: 'FETCH_TAGS'});
+    this.props.dispatch({type: 'FETCH_PROJECTS'});
   }
   render() {
     return (

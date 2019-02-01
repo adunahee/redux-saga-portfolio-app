@@ -15,6 +15,7 @@ import {takeEvery, put} from 'redux-saga/effects';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_TAGS', fetchTags);
+    yield takeEvery('FETCH_PROJECTS', fetchProjects);
 }
 
 function* fetchTags(){
@@ -24,6 +25,16 @@ function* fetchTags(){
     }
     catch(error) {
         yield console.log('error fetchingTags', error);
+    }
+}
+
+function* fetchProjects(){
+    try{
+        let projects = yield axios.get('/projects');
+        yield put({type: 'SET_PROJECTS', payload: projects.data})
+    }
+    catch(error){
+        yield console.log('error in fetchProjects', error);
     }
 }
 
