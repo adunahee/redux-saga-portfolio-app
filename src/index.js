@@ -9,10 +9,22 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+import axios from 'axios';
+import {takeEvery, put} from 'redux-saga/effects';
 
 // Create the rootSaga generator function
 function* rootSaga() {
+    yield takeEvery('FETCH_TAGS', fetchTags);
+}
 
+function* fetchTags(){
+    try{
+        const response = yield axios.get('/tags');
+        yield put({type: 'SET_TAGS', payload: response.data})
+    }
+    catch(error) {
+        yield console.log('error fetchingTags', error);
+    }
 }
 
 // Create sagaMiddleware

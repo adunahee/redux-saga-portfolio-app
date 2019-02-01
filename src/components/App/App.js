@@ -5,8 +5,14 @@ import Header from './../Header/Header';
 import ProjectPage from './../ProjectPage/ProjectPage';
 import AdminPage from './../AdminPage/AdminPage';
 
+import {connect} from 'react-redux';
+
 class App extends Component {
   // Renders the entire app on the DOM
+
+  componentDidMount() {
+    this.props.dispatch({type: 'FETCH_TAGS'})
+  }
   render() {
     return (
       <div className="App">
@@ -24,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);
