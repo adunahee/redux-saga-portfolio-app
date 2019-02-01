@@ -4,7 +4,6 @@ import {HashRouter as Router, Link, Route} from 'react-router-dom';
 import Header from './../Header/Header';
 import ProjectPage from './../ProjectPage/ProjectPage';
 import AdminPage from './../AdminPage/AdminPage';
-
 import {connect} from 'react-redux';
 
 class App extends Component {
@@ -23,6 +22,7 @@ class App extends Component {
             <Link to='/admin'>Admin</Link>
             <Route exact path='/' component={ProjectPage}/>
             <Route exact path='/admin' component={AdminPage} />
+            <img src='/images/goat_small.jpg' />
           </div>
         </Router>
       </div>
