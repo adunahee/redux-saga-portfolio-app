@@ -59,6 +59,12 @@ Place thumbnail images in the `public/images` folder.
 ### Project Page
 
 - [ ] Client side route that displays projects that are stored in the database
+    - [X] database inserts project data
+    - [X] server route get, tested with postman
+    - [] saga to fetch, and update project
+    - [] projects components access store map to project item
+    - [] project item builds using props
+    - [] material ui styling
 - [ ] Each project should conditionally render a name, description, thumbnail, website, date complete and a tag. Many of the fields are optional, only show properties that aren't null.
 - [ ] Include a link to GitHub that opens in a new window
 - [ ] Add your name at the top of the page
