@@ -16,6 +16,7 @@ import {takeEvery, put} from 'redux-saga/effects';
 function* rootSaga() {
     yield takeEvery('FETCH_TAGS', fetchTags);
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
+    yield takeEvery('POST_PROJECT', postProject);
 }
 
 function* fetchTags(){
@@ -38,6 +39,15 @@ function* fetchProjects(){
     }
 }
 
+function* postProject(action){
+    try{
+        yield axios.post('/projects', action.payload)
+        yield put({type: 'FETCH_PROJECTS'});
+    }
+    catch(error){
+        yield console.log('error in postProject saga', error);
+    }
+}
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 

@@ -5,13 +5,13 @@ class AdminForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            description: '',
-            thumbnail: '',
-            website: '',
-            github: '',
-            date_completed: '',
-            tag_id: '',
+            name: null,
+            description: null,
+            thumbnail: null,
+            website: null,
+            github: null,
+            date_completed: null,
+            tag_id: null,
         }   
     }
 
@@ -28,13 +28,13 @@ class AdminForm extends Component {
         console.log(this.state);
         this.props.dispatch({type: "POST_PROJECT", payload: this.state})
         this.setState({
-            name: '',
-            description: '',
-            thumbnail: '',
-            website: '',
-            github: '',
-            date_completed: '',
-            tag_id: '',
+            name: null,
+            description: null,
+            thumbnail: null,
+            website: null,
+            github: null,
+            date_completed: null,
+            tag_id: null,
         })
     }
 
@@ -47,6 +47,8 @@ class AdminForm extends Component {
     render() {
         console.log(this.state);
         // console.log(this.props.tags);
+        console.log(this.state.name === null ? 'empty' : this.state.name);
+        
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -56,7 +58,7 @@ class AdminForm extends Component {
                         id='name'
                         type='text'
                         placeholder='eg React Native CRUD App'
-                        value={this.state.name}
+                        value={this.state.name === null ? '' : this.state.name}
                         onChange={this.handleChange} />
                         <br />
                     <label htmlFor='description'>Description</label>
@@ -67,7 +69,7 @@ class AdminForm extends Component {
                         placeholder='Write multiple lines here to describe 
                         project like what it does and what you used that was 
                         new to you.'
-                        value={this.state.description} 
+                        value={this.state.description === null ? '' : this.state.description}
                         onChange={this.handleChange}/>
                     <br />
                     <label htmlFor='thumbnail'>Thumbnail Image URL</label>
@@ -75,7 +77,7 @@ class AdminForm extends Component {
                         id='thumbnail'
                         type='url'
                         placeholder='www.imagesource.com'
-                        value={this.state.thumbnail}
+                        value={this.state.thumbnail === null ? '' : this.state.thumbnail}
                         onChange={this.handleChange} />
                     <br />
                     <label htmlFor='website'>Website URL</label>
@@ -83,7 +85,7 @@ class AdminForm extends Component {
                         id='website'
                         type='url'
                         placeholder='www.heroku.com/winking-brown-eye-5555'
-                        value={this.state.website}
+                        value={this.state.website === null ? '' : this.state.website}
                         onChange={this.handleChange} />
                     <br />
                     <label htmlFor='github'>GitHub URL</label>
@@ -91,19 +93,19 @@ class AdminForm extends Component {
                         id='github'
                         type='url'
                         placeholder='wwww.github.com/profile/projectname'
-                        value={this.state.github}
+                        value={this.state.github === null ? '' : this.state.github}
                         onChange={this.handleChange} />
                     <br />
                     <label htmlFor='date_completed'>Date Completed</label>
                     <input
                         id='date_completed'
                         type='date'
-                        value={this.state.date_completed}
+                        value={this.state.date_completed === null ? '' : this.state.date_completed}
                         onChange={this.handleChange} />
                     <label htmlFor='tag_id'>Tags</label>
                     {/* figure out how to make this rerender on form submit */}
                     {this.props.tags.length > 1 &&
-                        <select defaultValue={this.state.tag_id}
+                        <select defaultValue={this.state.tag_id === null ? '' : this.state.tag_id}
                                 onChange={this.handleChange}
                                 id="tag_id">
                             <option value='' disabled>Choose One</option>
