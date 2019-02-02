@@ -13,7 +13,12 @@ class ProjectItem extends Component {
                 return null
             } else if (projectKeys[index] === "thumbnail" ) {
                 return <img key={index} src={value} alt={`screenshot of ${this.props.project.name}`} height='300' width='300'/>
-            } else {
+            } else if (projectKeys[index] === "website" || projectKeys[index] === 'github'){
+                return <div>
+                    <a href={value} target="_blank">View {projectKeys[index]}</a> 
+                    </div>
+            }
+            else {
                 return <p key={index}> {projectKeys[index]}: {value}</p>
             }
         })
