@@ -62,7 +62,7 @@ Place thumbnail images in the `public/images` folder.
     - [X] database inserts project data
     - [X] server route get, tested with postman
     - [X] saga to fetch, and update project
-    - [] projects components access store map to project item
+    - [X] projects components access store map to project item
     - [] project item builds using props
     - [] material ui styling
 - [ ] Each project should conditionally render a name, description, thumbnail, website, date complete and a tag. Many of the fields are optional, only show properties that aren't null.
