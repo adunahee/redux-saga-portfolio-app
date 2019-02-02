@@ -40,7 +40,7 @@ class AdminForm extends Component {
 
     buildTagsOptions = () => {
         return this.props.tags.map( (tagObj, i) => {
-            return <option key={i} value={tagObj.name}>{tagObj.name}</option>
+            return <option key={i} value={tagObj.id}>{tagObj.name}</option>
         })
     }
 
@@ -105,7 +105,7 @@ class AdminForm extends Component {
                     <label htmlFor='tag_id'>Tags</label>
                     {/* figure out how to make this rerender on form submit */}
                     {this.props.tags.length > 1 &&
-                        <select defaultValue={this.state.tag_id === null ? '' : this.state.tag_id}
+                        <select value={this.state.tag_id === null ? '' : this.state.tag_id}
                                 onChange={this.handleChange}
                                 id="tag_id">
                             <option value='' disabled>Choose One</option>
