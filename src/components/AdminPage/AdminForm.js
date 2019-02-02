@@ -11,15 +11,21 @@ class AdminForm extends Component {
             website: '',
             github: '',
             date_completed: '',
+            tag_id: '',
         }   
     }
 
     handleChange = (event) => {
-        this.setState({[event.target.id]: event.target.value});
+        if (event.target.id === '') {
+            this.setState({tag_id: event.target.value})
+        } else {
+            this.setState({ [event.target.id]: event.target.value });
+        }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
+        console.log(this.state);
         this.props.dispatch({type: "POST_PROJECT", payload: this.state})
         this.setState({
             name: '',
@@ -28,12 +34,19 @@ class AdminForm extends Component {
             website: '',
             github: '',
             date_completed: '',
+            tag_id: '',
+        })
+    }
+
+    buildTagsOptions = () => {
+        return this.props.tags.map( (tagObj, i) => {
+            return <option key={i} value={tagObj.name}>{tagObj.name}</option>
         })
     }
 
     render() {
         console.log(this.state);
-        
+        // console.log(this.props.tags);
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -85,9 +98,19 @@ class AdminForm extends Component {
                     <input
                         id='date_completed'
                         type='date'
-                        placeholder='eg React Native CRUD App'
                         value={this.state.date_completed}
                         onChange={this.handleChange} />
+                    <label htmlFor='tag_id'>Tags</label>
+                    {/* figure out how to make this rerender on form submit */}
+                    {this.props.tags.length > 1 &&
+                        <select defaultValue={this.state.tag_id}
+                                onChange={this.handleChange}
+                                id="tag_id">
+                            <option value='' disabled>Choose One</option>
+                            {this.buildTagsOptions()}
+                        </select>
+                    }
+                    <br />
                         <button type='submit'>Submit</button>
                 </form>
             </div>
@@ -95,4 +118,8 @@ class AdminForm extends Component {
     }
 }
 
-export default connect()(AdminForm)
+const mapRStoProps = (reduxStore) => {
+    return {tags: reduxStore.tags}
+}
+
+export default connect(mapRStoProps)(AdminForm)
