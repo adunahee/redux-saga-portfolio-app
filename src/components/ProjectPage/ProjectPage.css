@@ -1,0 +1,5 @@
+.project-card-actions {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+}

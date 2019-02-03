@@ -1,26 +1,34 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
+
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+
+import './ProjectPage.css';
 
 class ProjectItem extends Component {
 
-    buildProjectItems = () => {
-        //["id", "name", "description", "thumbnail", "website", "github", "date_completed", "tag_id"]
+    buildCardActions = () => {
         const projectKeys = Object.keys(this.props.project);
         const projectValues = Object.values(this.props.project);
 
-        return projectValues.map( (value, index) => {
-            if(value === null || typeof value === 'number') {
+        return projectValues.map((value, index) => {
+            if (value === null || typeof value === 'number') {
                 return null
-            } else if (projectKeys[index] === "thumbnail" ) {
-                return <img key={index} src={value} alt={`screenshot of ${this.props.project.name}`} height='300' width='300'/>
-            } else if (projectKeys[index] === "website" || projectKeys[index] === 'github'){
+            } else if (projectKeys[index] === "website") {
                 return <div key={index}>
-                    <a href={value} target="_blank" rel="noopener noreferrer">View {projectKeys[index]}</a> 
-                    </div>
+                    <a key={index} href={value} target="_blank" rel="noopener noreferrer">View Website</a>
+                </div>
+            } else if (projectKeys[index] === 'github') {
+                return <div>
+                    <a key={index} href={value} target="_blank" rel="noopener noreferrer">View Repo on GitHub</a>
+                </div>
             }
-            else {
-                return <p key={index}> {projectKeys[index]}: {value}</p>
-            }
+            else { return null }
         })
     }
 
@@ -41,12 +49,34 @@ class ProjectItem extends Component {
         // console.log(Object.values(this.props.project));
         // console.log(Object.keys(this.props.project));
         return (
-            <div>
-                {this.buildProjectItems()}
-                {this.buildGitHubCommitData()}
-            </div>
+            <Grid item lg={8} md={10} >
+                <Card>
+                    <CardHeader
+                        title={this.props.project.project_name}
+                        subheader={this.props.project.date_completed.substr(0, 10)}
+                    />
+                    {this.props.project.thumbnail === null ? null :
+                    <CardMedia
+                        component="img"
+                        alt={`Thumbnail of ${this.props.project.project_name}`}
+                        src={this.props.project.thumbnail}
+                        title={`Thumbnail of ${this.props.project.project_name}`}
+                    />
+                    }
+                    <CardContent>
+                        <Typography component='p'>
+                            {this.props.project.description}
+                        </Typography>
+                    </CardContent>
+                    <CardActions className='project-card-actions'>
+                        {this.buildCardActions()}
+                    </CardActions>
+                    {/* {this.buildProjectItems()} */}
+                    {/* {this.buildGitHubCommitData()} */}
+                </Card>
+            </Grid>
         )
     }
 }
 
-export default connect()(ProjectItem);
+export default ProjectItem;
