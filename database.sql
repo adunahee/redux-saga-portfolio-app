@@ -17,7 +17,9 @@ CREATE TABLE "projects" (
     "github" varchar(2048),
     "date_completed" date,
     "tag_id" INT REFERENCES "tags",
-    "github_repo_name" varchar(2048)
+    "github_repo_name" varchar(2048),
+    "total_commits" integer, 
+    "personal_commits" integer,
 );
 
 INSERT INTO "projects" ("name", "description", "thumbnail", "github", "date_completed", "github_repo_name")

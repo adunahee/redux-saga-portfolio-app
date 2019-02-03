@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     //replaces tag_id with tag name using join, excludes rows that would be tags with no projects
     pool.query(`SELECT projects.id, projects.name as project_name, description, 
-                thumbnail, website, github, date_completed, tags.name as tag_name
+                thumbnail, website, github, date_completed, tags.name as tag_name, total_commits, personal_commits
                 FROM projects
                 FULL OUTER JOIN tags ON projects.tag_id = tags.id
                 WHERE projects.id IS NOT NULL;`)
