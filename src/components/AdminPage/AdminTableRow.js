@@ -22,7 +22,7 @@ class AdminTableRow extends Component {
             else if (i === projectKeys.length - 1) {
                 return <td key={i}>
                     <button onClick={this.handleDelete}>Delete</button>
-                    <button onClick={this.handleUpdate}>Update</button>
+                    <button onClick={this.handleUpdate}>Update Tags</button>
                 </td>
             } else {
                 return null

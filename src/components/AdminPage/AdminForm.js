@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import TagsDropdown from './../AdminPage/TagsDropdown';
 
 class AdminForm extends Component {
     constructor(props) {
@@ -36,12 +37,6 @@ class AdminForm extends Component {
             github: null,
             date_completed: null,
             tag_id: null,
-        })
-    }
-
-    buildTagsOptions = () => {
-        return this.props.tags.map( (tagObj, i) => {
-            return <option key={i} value={tagObj.id}>{tagObj.name}</option>
         })
     }
 
@@ -104,15 +99,9 @@ class AdminForm extends Component {
                         value={this.state.date_completed === null ? '' : this.state.date_completed}
                         onChange={this.handleChange} />
                     <label htmlFor='tag_id'>Tags</label>
-                    {/* figure out how to make this rerender on form submit */}
-                    {this.props.tags.length > 1 &&
-                        <select value={this.state.tag_id === null ? '' : this.state.tag_id}
-                                onChange={this.handleChange}
-                                id="tag_id">
-                            <option value='' disabled>Choose One</option>
-                            {this.buildTagsOptions()}
-                        </select>
-                    }
+
+                    <TagsDropdown tag_id={this.state.tag_id} handleChange={this.handleChange}/>
+                    
                     <br />
                         <button type='submit'>Submit</button>
                 </form>
@@ -121,8 +110,4 @@ class AdminForm extends Component {
     }
 }
 
-const mapRStoProps = (reduxStore) => {
-    return {tags: reduxStore.tags}
-}
-
-export default connect(mapRStoProps)(AdminForm)
+export default connect()(AdminForm);
