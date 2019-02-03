@@ -12,6 +12,7 @@ class TagsDropdown extends Component {
   render() {
     return (
       <div>
+            <label htmlFor='tag_id'>Tags</label>
             {this.props.tags.length > 1 &&
                 <select value={this.props.tag_id === null ? '' : this.props.tag_id}
                     onChange={this.props.handleChange}

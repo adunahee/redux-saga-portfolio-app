@@ -98,7 +98,8 @@ class AdminForm extends Component {
                         type='date'
                         value={this.state.date_completed === null ? '' : this.state.date_completed}
                         onChange={this.handleChange} />
-                    <label htmlFor='tag_id'>Tags</label>
+                    <br />
+                    
 
                     <TagsDropdown tag_id={this.state.tag_id} handleChange={this.handleChange}/>
                     

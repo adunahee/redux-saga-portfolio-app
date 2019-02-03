@@ -91,7 +91,7 @@ class AdminTableRow extends Component {
 
     render() {
         //   console.log(this.props.project);
-        console.log(this.state);
+        // console.log(this.state);
 
         return (
             <tr>

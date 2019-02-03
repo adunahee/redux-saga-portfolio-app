@@ -14,7 +14,7 @@ class ProjectItem extends Component {
             } else if (projectKeys[index] === "thumbnail" ) {
                 return <img key={index} src={value} alt={`screenshot of ${this.props.project.name}`} height='300' width='300'/>
             } else if (projectKeys[index] === "website" || projectKeys[index] === 'github'){
-                return <div>
+                return <div key={index}>
                     <a href={value} target="_blank" rel="noopener noreferrer">View {projectKeys[index]}</a> 
                     </div>
             }
