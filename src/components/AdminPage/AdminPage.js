@@ -6,8 +6,8 @@ import AdminForm from './../AdminPage/AdminForm';
 class AdminPage extends Component {
 
   buildProjectRows = () => {
-    return this.props.reduxStore.projects.map( (project, index) => {
-      return <AdminTableRow key={index} project={project}/>
+    return this.props.reduxStore.projects.map((project, index) => {
+      return <AdminTableRow key={index} project={project} />
     })
   }
 
@@ -33,7 +33,7 @@ class AdminPage extends Component {
             </tr>
           </thead>
           <tbody>
-      {this.buildProjectRows()}
+            {this.buildProjectRows()}
           </tbody>
         </table>
       </div>

@@ -10,7 +10,7 @@ import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
 import axios from 'axios';
-import {takeEvery, put} from 'redux-saga/effects';
+import { takeEvery, put } from 'redux-saga/effects';
 
 // Create the rootSaga generator function
 function* rootSaga() {
@@ -20,48 +20,48 @@ function* rootSaga() {
     yield takeEvery('DELETE_PROJECT', deleteProject);
 }
 
-function* fetchTags(){
-    try{
+function* fetchTags() {
+    try {
         const response = yield axios.get('/tags');
-        yield put({type: 'SET_TAGS', payload: response.data})
+        yield put({ type: 'SET_TAGS', payload: response.data })
     }
-    catch(error) {
+    catch (error) {
         yield console.log('error fetchingTags', error);
     }
 }
 
-function* fetchProjects(){
-    try{
+function* fetchProjects() {
+    try {
         let projects = yield axios.get('/projects');
-        yield put({type: 'SET_PROJECTS', payload: projects.data})
+        yield put({ type: 'SET_PROJECTS', payload: projects.data })
     }
-    catch(error){
+    catch (error) {
         yield console.log('error in fetchProjects', error);
     }
 }
 
-function* postProject(action){
-    try{
+function* postProject(action) {
+    try {
         yield axios.post('/projects', action.payload);
         yield alert('Your project has successfully been added to the database.')
-        yield put({type: 'FETCH_PROJECTS'});
+        yield put({ type: 'FETCH_PROJECTS' });
     }
-    catch(error){
+    catch (error) {
         yield console.log('error in postProject saga', error);
         yield alert('Unable to add your project to the database at this time.')
     }
 }
 
-function* deleteProject(action){
-    try{
+function* deleteProject(action) {
+    try {
         yield axios.delete(`/projects/${action.payload}`);
-        yield put({type: 'FETCH_PROJECTS'});
+        yield put({ type: 'FETCH_PROJECTS' });
         yield alert('Project deleted.');
     }
-    catch(error){
+    catch (error) {
         yield alert('Unable to delete the project at this time.');
         yield console.log('deleteProject error:', error);
-        
+
     }
 }
 // Create sagaMiddleware
@@ -100,6 +100,6 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();
