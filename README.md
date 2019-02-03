@@ -104,5 +104,5 @@ Place thumbnail images in the `public/images` folder.
 
 - [ ] Use the GitHub API to get user information to display at the top of the page
 - [ ] Improve styling on the page using Material UI
-- [ ] Include a form on the admin page for adding new tags
+- [X] Include update tag button in admin table
 - [ ] Implement additional features of the GitHub API

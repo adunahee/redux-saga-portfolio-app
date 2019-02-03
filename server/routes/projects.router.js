@@ -44,6 +44,17 @@ router.delete('/:id', (req, res) => {
 
             res.sendStatus(500);
         });
+});
+
+router.put('/:tag_id/:project_id', (req, res) => {
+    const queryText = `UPDATE projects SET tag_id = $1 WHERE id = $2;`
+    pool.query(queryText, [req.params.tag_id, req.params.project_id])
+        .then(response => {
+            res.sendStatus(200);
+        }).catch(error => {
+            console.log('error updating project tag_id', error);
+            res.sendStatus(500);
+        });
 })
 
 module.exports = router;

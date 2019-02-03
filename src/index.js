@@ -18,6 +18,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
     yield takeEvery('POST_PROJECT', postProject);
     yield takeEvery('DELETE_PROJECT', deleteProject);
+    yield takeEvery('UPDATE_PROJECT_TAG', updateTag);
 }
 
 function* fetchTags() {
@@ -62,6 +63,18 @@ function* deleteProject(action) {
         yield alert('Unable to delete the project at this time.');
         yield console.log('deleteProject error:', error);
 
+    }
+}
+
+function* updateTag(action){
+    try{
+        yield axios.put(`/projects/${action.payload.tag_id}/${action.payload.project_id}`);
+        yield alert('Tag successfully updated.')
+        yield put({type: 'FETCH_PROJECTS'})
+    }
+    catch(error){
+        yield console.log('error in updateTag saga', error);
+        yield alert('Unable to update project tag at this time.')
     }
 }
 // Create sagaMiddleware
