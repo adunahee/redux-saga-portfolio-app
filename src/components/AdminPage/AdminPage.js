@@ -25,6 +25,9 @@ class AdminPage extends Component {
                 Project Name
               </th>
               <th>
+                Project Description
+              </th>
+              <th>
                 Action
               </th>
             </tr>
