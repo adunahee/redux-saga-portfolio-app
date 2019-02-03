@@ -41,11 +41,13 @@ function* fetchProjects(){
 
 function* postProject(action){
     try{
-        yield axios.post('/projects', action.payload)
+        yield axios.post('/projects', action.payload);
+        yield alert('Your project has successfully been added to the database.')
         yield put({type: 'FETCH_PROJECTS'});
     }
     catch(error){
         yield console.log('error in postProject saga', error);
+        yield alert('Unable to add your project to the database at this time.')
     }
 }
 // Create sagaMiddleware

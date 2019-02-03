@@ -27,6 +27,7 @@ class AdminForm extends Component {
         event.preventDefault();
         console.log(this.state);
         this.props.dispatch({type: "POST_PROJECT", payload: this.state})
+        // this.props.dispatch({ type: "POST_PROJECT", payload: 'force error'})
         this.setState({
             name: null,
             description: null,
@@ -45,9 +46,9 @@ class AdminForm extends Component {
     }
 
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         // console.log(this.props.tags);
-        console.log(this.state.name === null ? 'empty' : this.state.name);
+        // console.log(this.state.name === null ? 'empty' : this.state.name);
         
         return (
             <div>

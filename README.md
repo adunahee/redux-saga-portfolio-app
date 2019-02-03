@@ -72,12 +72,12 @@ Place thumbnail images in the `public/images` folder.
 
 ### Admin Page
 
-- [ ] Client side route that displays a form allowing you to add a new project to your portfolio
+- [X] Client side route that displays a form allowing you to add a new project to your portfolio
     - [X] Route in app js
     - [X] Component files and structure connect to store
     - [X] form dispatches to sagas, updates state on input changes
 - [X] Include a drop down menu with a list of tags
-- [ ] Send data to the server and notify the user of success or failure
+- [X] Send data to the server and notify the user of success or failure
 - [ ] List projects by name and allow the user to delete them
 - [ ] Include a button that navigates to the project page
 
