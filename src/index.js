@@ -17,6 +17,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_TAGS', fetchTags);
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
     yield takeEvery('POST_PROJECT', postProject);
+    yield takeEvery('DELETE_PROJECT', deleteProject);
 }
 
 function* fetchTags(){
@@ -48,6 +49,19 @@ function* postProject(action){
     catch(error){
         yield console.log('error in postProject saga', error);
         yield alert('Unable to add your project to the database at this time.')
+    }
+}
+
+function* deleteProject(action){
+    try{
+        yield axios.delete(`/projects/${action.payload}`);
+        yield put({type: 'FETCH_PROJECTS'});
+        yield alert('Project deleted.');
+    }
+    catch(error){
+        yield alert('Unable to delete the project at this time.');
+        yield console.log('deleteProject error:', error);
+        
     }
 }
 // Create sagaMiddleware
