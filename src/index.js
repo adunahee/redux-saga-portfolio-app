@@ -19,6 +19,7 @@ function* rootSaga() {
     yield takeEvery('POST_PROJECT', postProject);
     yield takeEvery('DELETE_PROJECT', deleteProject);
     yield takeEvery('UPDATE_PROJECT_TAG', updateTag);
+    yield takeEvery('FETCH_COMMIT_DATA', fetchCommitData);
 }
 
 function* fetchTags() {
@@ -75,6 +76,17 @@ function* updateTag(action){
     catch(error){
         yield console.log('error in updateTag saga', error);
         yield alert('Unable to update project tag at this time.')
+    }
+}
+
+function* fetchCommitData(action){
+    try{
+        yield axios.get(`/api/github/commit-data`);
+        yield put({type: "FETCH_PROJECTS"});
+    }
+    catch(error){
+        yield console.log('error in fetchCommitData saga', error);
+        yield put({})
     }
 }
 // Create sagaMiddleware

@@ -11,7 +11,8 @@ class App extends Component {
 
   componentDidMount() {
     this.props.dispatch({type: 'FETCH_TAGS'});
-    this.props.dispatch({type: 'FETCH_PROJECTS'});
+    //also calls a fetch project data
+    this.props.dispatch({type: 'FETCH_COMMIT_DATA'});
   }
   render() {
     return (
