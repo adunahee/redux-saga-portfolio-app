@@ -6,7 +6,7 @@ export default class Header extends Component {
       <header className='header'>
         <h1>Welcome to Anthony Dunahee's Portfolio</h1>
         <img src='/images/headshot.jpg'
-          htmlFor="headshot of Anthony"
+          alt="headshot of Anthony"
           className='headshot' />
       </header>
     )

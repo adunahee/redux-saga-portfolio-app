@@ -22,7 +22,7 @@ class ProjectPage extends Component {
                     direction="column"
                     justify="center"
                     alignItems="center"
-                    spacing={12}
+                    spacing={24}
                 >
                     {this.props.projects.length > 1 &&
 

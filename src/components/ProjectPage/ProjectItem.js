@@ -21,11 +21,11 @@ class ProjectItem extends Component {
                 return null
             } else if (projectKeys[index] === "website") {
                 return <div key={index}>
-                    <a key={index} href={value} target="_blank" rel="noopener noreferrer">View Website</a>
+                    <a href={value} target="_blank" rel="noopener noreferrer">View Website</a>
                 </div>
             } else if (projectKeys[index] === 'github') {
-                return <div>
-                    <a key={index} href={value} target="_blank" rel="noopener noreferrer">View Repo on GitHub</a>
+                return <div key={index}>
+                    <a  href={value} target="_blank" rel="noopener noreferrer">View Repo on GitHub</a>
                 </div>
             }
             else { return null }
@@ -49,7 +49,7 @@ class ProjectItem extends Component {
         // console.log(Object.values(this.props.project));
         // console.log(Object.keys(this.props.project));
         return (
-            <Grid item lg={8} md={10} className='card-grid-item'>
+            <Grid item lg={8} md={10} className='card-grid-item' >
                 <Card className='project-card'>
                     <CardHeader
                         title={this.props.project.project_name}
