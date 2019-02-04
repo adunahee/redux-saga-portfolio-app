@@ -57,7 +57,7 @@ class AdminTableRow extends Component {
 
     tagsPopup = () => (
         <Popup
-            trigger={<button className="button"> Update Tags </button>}
+            trigger={<button> Update Tag </button>}
             modal
             closeOnDocumentClick
         >
@@ -74,7 +74,7 @@ class AdminTableRow extends Component {
         const projectValues = Object.values(this.props.project);
         const projectKeys = Object.keys(this.props.project);
         return projectKeys.map((key, i) => {
-            if (key === "project_name" || key === "description") {
+            if (key === "project_name" || key === "description" || key === "tag_name") {
                 return <td key={i}>{projectValues[i]}</td>
             }
             //before finished with mapping, adding in buttons cell

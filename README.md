@@ -79,7 +79,7 @@ Place thumbnail images in the `public/images` folder.
 - [X] Include a drop down menu with a list of tags
 - [X] Send data to the server and notify the user of success or failure
 - [X] List projects by name and allow the user to delete them
-- [ ] Include a button that navigates to the project page
+- [X] Include a button that navigates to the project page
 
 ### General Tasks
 
@@ -103,6 +103,6 @@ Place thumbnail images in the `public/images` folder.
 ## Stretch Goals
 
 - [ ] Use the GitHub API to get user information to display at the top of the page
-- [ ] Improve styling on the page using Material UI
+- [X] Improve styling on the page using Material UI
 - [X] Include update tag button in admin table
 - [X] Implement additional features of the GitHub API
