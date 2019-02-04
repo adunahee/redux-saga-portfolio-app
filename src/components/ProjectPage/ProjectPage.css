@@ -3,3 +3,19 @@
     justify-content: center;
     align-content: space-between;
 }
+
+a {
+    background-color: rgba(173, 216, 230, 0.39);
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px;
+    color: rgb(223, 156, 32);
+}
+
+.card-grid-item {
+    padding: 20px;
+}
+
+.project-card {
+    padding: 10px;
+}

@@ -49,8 +49,8 @@ class ProjectItem extends Component {
         // console.log(Object.values(this.props.project));
         // console.log(Object.keys(this.props.project));
         return (
-            <Grid item lg={8} md={10} >
-                <Card>
+            <Grid item lg={8} md={10} className='card-grid-item'>
+                <Card className='project-card'>
                     <CardHeader
                         title={this.props.project.project_name}
                         subheader={this.props.project.date_completed.substr(0, 10)}

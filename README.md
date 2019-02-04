@@ -64,7 +64,7 @@ Place thumbnail images in the `public/images` folder.
     - [X] saga to fetch, and update project
     - [X] projects components access store map to project item
     - [X] project item builds using props
-    - [] material ui styling
+    - [X] material ui styling
 - [X] Each project should conditionally render a name, description, thumbnail, website, date complete and a tag. Many of the fields are optional, only show properties that aren't null.
 - [X] Include a link to GitHub that opens in a new window
 - [X] Add your name at the top of the page

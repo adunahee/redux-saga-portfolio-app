@@ -20,10 +20,10 @@ class App extends Component {
         <Header />
         <Router>
           <div>
-            <Link to='/'>Projects</Link>
-            <Link to='/admin'>Admin</Link>
             <Route exact path='/' component={ProjectPage}/>
             <Route exact path='/admin' component={AdminPage} />
+            {/* <Link to='/'>Projects</Link>
+            <Link to='/admin'>Admin</Link> */}
           </div>
         </Router>
       </div>

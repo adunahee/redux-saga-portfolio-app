@@ -17,7 +17,6 @@ class ProjectPage extends Component {
 
         return (
             <div>
-                <h2>Projects</h2>
                 <Grid
                     container
                     direction="column"
