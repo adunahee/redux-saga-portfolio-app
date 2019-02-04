@@ -56,17 +56,21 @@ class ProjectItem extends Component {
                         subheader={this.props.project.date_completed.substr(0, 10)}
                     />
                     {this.props.project.thumbnail === null ? null :
-                    <CardMedia
-                        component="img"
-                        alt={`Thumbnail of ${this.props.project.project_name}`}
-                        src={this.props.project.thumbnail}
-                        title={`Thumbnail of ${this.props.project.project_name}`}
-                    />
+                        <CardMedia
+                            component="img"
+                            alt={`Thumbnail of ${this.props.project.project_name}`}
+                            src={this.props.project.thumbnail}
+                            title={`Thumbnail of ${this.props.project.project_name}`}
+                        />
                     }
                     <CardContent>
                         <Typography component='p'>
                             {this.props.project.description}
                         </Typography>
+                        {this.props.project.tag_name === null ? null :
+                            <Typography>
+                                {`#${this.props.project.tag_name}`}
+                            </Typography>}
                     </CardContent>
                     <CardActions className='project-card-actions'>
                         {this.buildCardActions()}

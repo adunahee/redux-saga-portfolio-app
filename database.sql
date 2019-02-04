@@ -1,4 +1,5 @@
 -- 1. Create a database named `portfolio`
+CREATE DATABASE "portfolio";
 
 CREATE TABLE "tags" (
     "id" SERIAL PRIMARY KEY,
@@ -19,7 +20,7 @@ CREATE TABLE "projects" (
     "tag_id" INT REFERENCES "tags",
     "github_repo_name" varchar(2048),
     "total_commits" integer, 
-    "personal_commits" integer,
+    "personal_commits" integer
 );
 
 INSERT INTO "projects" ("name", "description", "thumbnail", "github", "date_completed", "github_repo_name")
