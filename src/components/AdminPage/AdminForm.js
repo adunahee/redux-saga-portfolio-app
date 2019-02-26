@@ -111,4 +111,4 @@ class AdminForm extends Component {
     }
 }
 
-export default connect()(AdminForm);
+// export default connect()(AdminForm);

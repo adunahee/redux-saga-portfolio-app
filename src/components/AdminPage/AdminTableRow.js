@@ -105,4 +105,4 @@ const mapRStoProps = (reduxStore) => {
     return { tags: reduxStore.tags }
 }
 
-export default connect(mapRStoProps)(AdminTableRow);
+// export default connect(mapRStoProps)(AdminTableRow);

@@ -30,4 +30,4 @@ const mapRStoProps = (reduxStore) => {
     return { tags: reduxStore.tags }
 }
 
-export default connect(mapRStoProps)(TagsDropdown);
+// export default connect(mapRStoProps)(TagsDropdown);

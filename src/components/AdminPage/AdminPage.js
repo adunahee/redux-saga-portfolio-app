@@ -74,4 +74,4 @@ const mapRStoProps = (reduxStore) => {
   return { reduxStore }
 }
 
-export default connect(mapRStoProps)(AdminPage)
+// export default connect(mapRStoProps)(AdminPage)

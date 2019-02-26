@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import {HashRouter as Router, Link, Route} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 import Header from './../Header/Header';
 import ProjectPage from './../ProjectPage/ProjectPage';
-import AdminPage from './../AdminPage/AdminPage';
+
 import {connect} from 'react-redux';
+
+// disabled for security reasons and to limit upkeep
+// import AdminPage from './../AdminPage/AdminPage';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -21,7 +24,8 @@ class App extends Component {
         <Router>
           <div>
             <Route exact path='/' component={ProjectPage}/>
-            <Route exact path='/admin' component={AdminPage} />
+
+            {/* <Route exact path='/admin' component={AdminPage} /> */}
             {/* <Link to='/'>Projects</Link>
             <Link to='/admin'>Admin</Link> */}
           </div>
