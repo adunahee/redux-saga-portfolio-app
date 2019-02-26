@@ -32,18 +32,19 @@ class ProjectItem extends Component {
         })
     }
 
-    buildGitHubCommitData = () => {
-        return (
-            <ul>
-                <li>
-                    My commits: {this.props.project.personal_commits}
-                </li>
-                <li>
-                    Total commits: {this.props.project.total_commits}
-                </li>
-            </ul>
-        )
-    }
+    //git API not utilized at this time
+    // buildGitHubCommitData = () => {
+    //     return (
+    //         <ul>
+    //             <li>
+    //                 My commits: {this.props.project.personal_commits}
+    //             </li>
+    //             <li>
+    //                 Total commits: {this.props.project.total_commits}
+    //             </li>
+    //         </ul>
+    //     )
+    // }
 
     render() {
         // console.log(Object.values(this.props.project));

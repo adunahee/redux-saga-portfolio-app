@@ -12,9 +12,10 @@ app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
-app.use('/tags', tagsRouter);
+// app.use('/tags', tagsRouter);
 app.use('/projects', projectsRouter);
-app.use('/api/github', githubRouter);
+// take out for the time being
+// app.use('/api/github', githubRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
