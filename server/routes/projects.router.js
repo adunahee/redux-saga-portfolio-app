@@ -18,43 +18,45 @@ router.get('/', (req, res) => {
         });
 });
 
-router.post('/', (req, res) => {
-    console.log(req.body);
-    console.log(Object.values(req.body));
+//disabled to reduce need for security and upkeep
 
-    const queryText = `INSERT INTO projects 
-    (name, description, thumbnail, website, github, date_completed, tag_id)
-                        VALUES ($1, $2, $3, $4, $5, $6, $7);`
-    pool.query(queryText, Object.values(req.body))
-        .then(response => {
-            res.sendStatus(201);
-        }).catch(error => {
-            console.log('error posting project', error);
-            res.sendStatus(500);
-        })
-})
+// router.post('/', (req, res) => {
+//     console.log(req.body);
+//     console.log(Object.values(req.body));
 
-router.delete('/:id', (req, res) => {
-    const queryText = `DELETE FROM projects WHERE id = $1;`;
-    pool.query(queryText, [req.params.id])
-        .then(response => {
-            res.sendStatus(200);
-        }).catch(error => {
-            console.log('error deleting project', error);
+//     const queryText = `INSERT INTO projects 
+//     (name, description, thumbnail, website, github, date_completed, tag_id)
+//                         VALUES ($1, $2, $3, $4, $5, $6, $7);`
+//     pool.query(queryText, Object.values(req.body))
+//         .then(response => {
+//             res.sendStatus(201);
+//         }).catch(error => {
+//             console.log('error posting project', error);
+//             res.sendStatus(500);
+//         })
+// })
 
-            res.sendStatus(500);
-        });
-});
+// router.delete('/:id', (req, res) => {
+//     const queryText = `DELETE FROM projects WHERE id = $1;`;
+//     pool.query(queryText, [req.params.id])
+//         .then(response => {
+//             res.sendStatus(200);
+//         }).catch(error => {
+//             console.log('error deleting project', error);
 
-router.put('/:tag_id/:project_id', (req, res) => {
-    const queryText = `UPDATE projects SET tag_id = $1 WHERE id = $2;`
-    pool.query(queryText, [req.params.tag_id, req.params.project_id])
-        .then(response => {
-            res.sendStatus(200);
-        }).catch(error => {
-            console.log('error updating project tag_id', error);
-            res.sendStatus(500);
-        });
-})
+//             res.sendStatus(500);
+//         });
+// });
+
+// router.put('/:tag_id/:project_id', (req, res) => {
+//     const queryText = `UPDATE projects SET tag_id = $1 WHERE id = $2;`
+//     pool.query(queryText, [req.params.tag_id, req.params.project_id])
+//         .then(response => {
+//             res.sendStatus(200);
+//         }).catch(error => {
+//             console.log('error updating project tag_id', error);
+//             res.sendStatus(500);
+//         });
+// })
 
 module.exports = router;
