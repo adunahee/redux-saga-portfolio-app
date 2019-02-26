@@ -4,7 +4,7 @@ import { Grid, Typography } from '@material-ui/core';
 
 export default class Header extends Component {
   render() {
-    const headers = { color: '#e8e8e3'};
+    const headers = { color: '#F4E8A4' };
     return (
       <Grid container
         direction='column'
@@ -14,9 +14,9 @@ export default class Header extends Component {
       >
         <Grid item
           xs={12}>
-          <Typography variant='h2' 
-          style={headers}>
-          Anthony Dunahee's Portfolio</Typography>
+          <Typography variant='h2'
+            style={headers}>
+            Anthony Dunahee's Portfolio</Typography>
         </Grid>
         <Grid item>
 
@@ -32,7 +32,8 @@ export default class Header extends Component {
                 className='headshot'
                 style={{
                   height: '150px',
-                  width: '150px'
+                  width: '150px',
+                  borderRadius: '50%'
                 }} />
             </Grid>
 
@@ -47,9 +48,19 @@ export default class Header extends Component {
                 </Grid>
 
                 <Grid item>
-                  <Typography variant='h5'
+                  <Typography
                     style={headers}>
-                    I am an aspiring full stack developer, and excited to share with you some of my recent work.</Typography>
+                    I am an aspiring full stack developer,
+                    and excited to share with you some of my recent work.
+                    You can view my <a href=''
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        textDecoration: 'none',
+                        color: 'cornflowerblue'
+                      }}>
+                      GitHub profile </a>
+                    or preview my projects below. </Typography>
                 </Grid>
 
               </Grid>

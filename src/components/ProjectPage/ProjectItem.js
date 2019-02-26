@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-
-import './ProjectPage.css';
+import {Card, CardHeader, CardMedia, CardContent, 
+    CardActions, Typography, Grid} from '@material-ui/core';
 
 class ProjectItem extends Component {
 
@@ -47,10 +40,7 @@ class ProjectItem extends Component {
     // }
 
     render() {
-        // console.log(Object.values(this.props.project));
-        // console.log(Object.keys(this.props.project));
         return (
-            <Grid item lg={8} md={10} className='card-grid-item' >
                 <Card className='project-card'>
                     <CardHeader
                         title={this.props.project.project_name}
@@ -76,10 +66,7 @@ class ProjectItem extends Component {
                     <CardActions className='project-card-actions'>
                         {this.buildCardActions()}
                     </CardActions>
-                    {/* {this.buildProjectItems()} */}
-                    {/* {this.buildGitHubCommitData()} */}
                 </Card>
-            </Grid>
         )
     }
 }

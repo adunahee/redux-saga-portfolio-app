@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+
 import ProjectItem from './../ProjectPage/ProjectItem';
 
 import Grid from '@material-ui/core/Grid';
@@ -8,18 +9,22 @@ class ProjectPage extends Component {
 
     buildProjectCards = () => {
         return this.props.projects.map((project, index) => {
-            return <ProjectItem key={index} project={project} />
+            return (
+                <Grid item
+                    xs={5}>
+                    <ProjectItem key={index} project={project} />
+                </Grid>
+
+            )
         })
     }
 
     render() {
-        // console.log(this.props.projects);
 
         return (
-            <div>
                 <Grid
                     container
-                    direction="column"
+                    direction="row"
                     justify="center"
                     alignItems="center"
                     spacing={24}
@@ -29,8 +34,6 @@ class ProjectPage extends Component {
                         this.buildProjectCards()
                     }
                 </Grid>
-
-            </div>
         )
     }
 }
