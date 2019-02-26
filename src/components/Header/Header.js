@@ -19,7 +19,8 @@ export default class Header extends Component {
 
           <Grid container
             direction='row'
-            alignItems='flex-start'
+            alignItems='center'
+            justify='center'
             spacing={8}
           >
             <Grid item>

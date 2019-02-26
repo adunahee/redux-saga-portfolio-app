@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import {connect} from 'react-redux';
 import {HashRouter as Router, Route} from 'react-router-dom';
+
+import './App.css';
+
 import Header from './../Header/Header';
 import ProjectPage from './../ProjectPage/ProjectPage';
-
-import {connect} from 'react-redux';
 
 // disabled for security reasons and to limit upkeep
 // import AdminPage from './../AdminPage/AdminPage';
@@ -13,9 +14,10 @@ class App extends Component {
   // Renders the entire app on the DOM
 
   componentDidMount() {
-    this.props.dispatch({type: 'FETCH_TAGS'});
+    // this.props.dispatch({type: 'FETCH_TAGS'});
     //also calls a fetch project data
-    this.props.dispatch({type: 'FETCH_COMMIT_DATA'});
+    // this.props.dispatch({type: 'FETCH_COMMIT_DATA'});
+    this.props.dispatch({type: 'FETCH_PROJECTS'})
   }
   render() {
     return (
