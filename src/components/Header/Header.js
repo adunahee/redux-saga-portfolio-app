@@ -52,7 +52,7 @@ export default class Header extends Component {
                     style={headers}>
                     I am an aspiring full stack developer,
                     and excited to share with you some of my recent work.
-                    You can view my <a href=''
+                    You can view my <a href='https://github.com/adunahee'
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
