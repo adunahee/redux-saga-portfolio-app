@@ -17,7 +17,8 @@ class App extends Component {
     // this.props.dispatch({type: 'FETCH_TAGS'});
     //also calls a fetch project data
     // this.props.dispatch({type: 'FETCH_COMMIT_DATA'});
-    this.props.dispatch({ type: 'FETCH_PROJECTS' })
+    // removing server router and db requirements on project and hardcoding data
+    // this.props.dispatch({ type: 'FETCH_PROJECTS' })
   }
   render() {
     return (

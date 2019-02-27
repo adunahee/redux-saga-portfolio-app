@@ -11,9 +11,10 @@ class ProjectPage extends Component {
         return this.props.projects.map((project, index) => {
             return (
                 <Grid item
+                    key={index}
                     sm={7}
                     md={5}>
-                    <ProjectItem key={index} project={project} />
+                    <ProjectItem project={project} />
                 </Grid>
             )
         })
@@ -37,6 +38,8 @@ class ProjectPage extends Component {
         )
     }
 }
+
+//disconnecting app from rs and db, and hardcoding project
 
 const mapRStoProps = (reduxStore) => {
     return { projects: reduxStore.projects }

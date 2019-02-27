@@ -12,6 +12,9 @@ import createSagaMiddleware from 'redux-saga';
 import axios from 'axios';
 import { takeEvery, put } from 'redux-saga/effects';
 
+//static data for project
+import projectsData from './components/projectData';
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_TAGS', fetchTags);
@@ -93,7 +96,7 @@ function* fetchCommitData(action){
 const sagaMiddleware = createSagaMiddleware();
 
 // Used to store projects returned from the server
-const projects = (state = [], action) => {
+const projects = (state = projectsData, action) => {
     switch (action.type) {
         case 'SET_PROJECTS':
             return action.payload;
