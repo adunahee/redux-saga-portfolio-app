@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './projectItem.css';
+
 import {
     Card, CardHeader, CardMedia, CardContent,
     CardActions, Typography, IconButton, Grid, Collapse
@@ -77,6 +79,7 @@ class ProjectItem extends Component {
                         alt={`Thumbnail of ${this.props.project.project_name}`}
                         src={this.props.project.thumbnail}
                         title={`Thumbnail of ${this.props.project.project_name}`}
+                        className='web-image'
                     />
                 }
                 <CardActions className='project-card-actions'>
@@ -104,7 +107,7 @@ class ProjectItem extends Component {
                         </Typography>
                         {this.props.project.tag_name === null ? null :
                             <Typography style={expansionText}>
-                                {`#${this.props.project.tag_name}`}
+                                {`${this.props.project.tag_name.join(' ')}`}
                             </Typography>}
                     </CardContent>
                 </Collapse>
