@@ -11,10 +11,10 @@ class ProjectPage extends Component {
         return this.props.projects.map((project, index) => {
             return (
                 <Grid item
-                    xs={5}>
+                    sm={7}
+                    md={5}>
                     <ProjectItem key={index} project={project} />
                 </Grid>
-
             )
         })
     }

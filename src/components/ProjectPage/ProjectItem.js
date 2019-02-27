@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
-import {Card, CardHeader, CardMedia, CardContent, 
-    CardActions, Typography, Grid} from '@material-ui/core';
+import {
+    Card, CardHeader, CardMedia, CardContent,
+    CardActions, Typography, IconButton
+    } from '@material-ui/core';
+
+import { OpenInNew } from '@material-ui/icons';
 
 class ProjectItem extends Component {
 
@@ -13,13 +17,25 @@ class ProjectItem extends Component {
             if (value === null || typeof value === 'number') {
                 return null
             } else if (projectKeys[index] === "website") {
-                return <div key={index}>
-                    <a href={value} target="_blank" rel="noopener noreferrer">View Website</a>
-                </div>
+                return (
+                    <IconButton href={value}
+                        rel='noopener noreferrer'
+                        target='blank'
+                        key={index}>
+                        <OpenInNew />
+                    </IconButton>
+                )
+
             } else if (projectKeys[index] === 'github') {
-                return <div key={index}>
-                    <a  href={value} target="_blank" rel="noopener noreferrer">View Repo on GitHub</a>
-                </div>
+                return (
+                    <IconButton href={value}
+                        target='blank'
+                        rel='noopener noreferrer'
+                        key={index}
+                        style={{ padding: '5px' }}>
+                        <img src='/images/github-logo.svg' style={{ height: '25px' }} />
+                    </IconButton>
+                )
             }
             else { return null }
         })
@@ -40,33 +56,34 @@ class ProjectItem extends Component {
     // }
 
     render() {
+        const link = { textDecoration: 'none' }
         return (
-                <Card className='project-card'>
-                    <CardHeader
-                        title={this.props.project.project_name}
-                        subheader={this.props.project.date_completed.substr(0, 10)}
+            <Card className='project-card'>
+                <CardHeader
+                    title={this.props.project.project_name}
+                    subheader={this.props.project.date_completed.substr(0, 10)}
+                />
+                {this.props.project.thumbnail === null ? null :
+                    <CardMedia
+                        component="img"
+                        alt={`Thumbnail of ${this.props.project.project_name}`}
+                        src={this.props.project.thumbnail}
+                        title={`Thumbnail of ${this.props.project.project_name}`}
                     />
-                    {this.props.project.thumbnail === null ? null :
-                        <CardMedia
-                            component="img"
-                            alt={`Thumbnail of ${this.props.project.project_name}`}
-                            src={this.props.project.thumbnail}
-                            title={`Thumbnail of ${this.props.project.project_name}`}
-                        />
-                    }
-                    <CardContent>
-                        <Typography component='p'>
-                            {this.props.project.description}
-                        </Typography>
-                        {this.props.project.tag_name === null ? null :
-                            <Typography>
-                                {`#${this.props.project.tag_name}`}
-                            </Typography>}
-                    </CardContent>
-                    <CardActions className='project-card-actions'>
-                        {this.buildCardActions()}
-                    </CardActions>
-                </Card>
+                }
+                <CardContent>
+                    <Typography component='p'>
+                        {this.props.project.description}
+                    </Typography>
+                    {this.props.project.tag_name === null ? null :
+                        <Typography>
+                            {`#${this.props.project.tag_name}`}
+                        </Typography>}
+                </CardContent>
+                <CardActions className='project-card-actions'>
+                    {this.buildCardActions()}
+                </CardActions>
+            </Card>
         )
     }
 }
