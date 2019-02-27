@@ -31,7 +31,6 @@ class ProjectPage extends Component {
                     spacing={24}
                 >
                     {this.props.projects.length > 1 &&
-
                         this.buildProjectCards()
                     }
                 </Grid>
