@@ -42,6 +42,22 @@ const calculatorApp = {
     website: 'https://protected-wildwood-77713.herokuapp.com/'
 }
 
+const kitcheNexus = {
+    date_completed: "2019-02-28T06:00:00.000Z",
+    description: `This is my first solo project ever.  I created wireframes, ERDs, 
+        and scoped it before creating.  I enjoyed thinking through user experience
+        when creating features and bug hunting. I look forward to adding more 
+        features in the future!`,
+    github: "https://github.com/adunahee/solo-project-kitcheNexus",
+    id: 4,
+    project_name: "Solo Project KitcheNexus",
+    tag_name: ["#react.js", "#node.js", "passport", "#postgreSQL", 'material-ui',
+    '#responsive'],
+    thumbnail: "/images/kitcheNexus-welcome.png",
+    website: 'https://kitchenexus.herokuapp.com/#/home'
+}
+
+projectsData.push(kitcheNexus);
 projectsData.push(feedbackApp);
 projectsData.push(galleryApp);
 projectsData.push(calculatorApp);
